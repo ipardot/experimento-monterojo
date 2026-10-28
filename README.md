@@ -62,7 +62,7 @@ Si cambias los códigos de subcategoría, actualiza también `QUESTION_CODES` en
 
 1. Sube la carpeta a un repositorio de GitHub.
 2. En **Settings → Pages**, elige la rama `main` y la carpeta raíz.
-3. El sitio quedará en: `https://TU-USUARIO.github.io/TU-REPOSITORIO/` (pendiente de completar).
+3. El sitio quedará en: https://ipardot.github.io/experimento-monterojo/.
 
 ## Accesibilidad
 
