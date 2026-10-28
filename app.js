@@ -4,7 +4,7 @@
    ========================================================= */
 
 // URL del Web App de Google Apps Script (ver README.md). Vacío = no se envía nada.
-const SHEETS_ENDPOINT = "";
+const SHEETS_ENDPOINT = "https://script.google.com/macros/s/AKfycbzTqkMNS7_FZlF1xK8Xl7cBRQQof9roujNeiDNM_xkNU51sSrW8NbbdGtPnnr3bKAIOKg/exec";
 
 // Estado de la sesión
 const state = {
