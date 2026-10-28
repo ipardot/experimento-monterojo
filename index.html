@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MonteRojo · Experimento de decisión de compra</title>
+  <meta name="description" content="Experimento de investigación de mercados sobre cómo eliges tus snacks. Descubre tu perfil de comprador MonteRojo.">
+  <meta name="theme-color" content="#1c1b1a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app" id="app" aria-live="polite">
+
+    <!-- 1. Bienvenida -->
+    <section class="screen" id="screen-welcome" data-screen="welcome">
+      <div class="card hero">
+        <p class="eyebrow">Experimento de investigación</p>
+        <h1 class="brand">Monte<span>Rojo</span></h1>
+        <p class="lead">¿Cómo eliges tu snack?</p>
+        <p>Es un experimento corto de unos 2 minutos. Te haremos una pregunta inicial y luego seis comparaciones entre dos opciones, <strong>A</strong> y <strong>B</strong>. Elige siempre la que más se parezca a ti: no hay respuestas correctas. Al final descubrirás tu perfil de comprador.</p>
+
+        <form class="fields" id="welcome-form" autocomplete="off">
+          <label class="field">
+            <span>Nombre o alias <em>(opcional)</em></span>
+            <input type="text" id="alias" name="alias" maxlength="40" placeholder="Cómo quieres que te llamemos">
+          </label>
+          <label class="field">
+            <span>Rango de edad <em>(opcional)</em></span>
+            <select id="age" name="age">
+              <option value="">Prefiero no decirlo</option>
+            </select>
+          </label>
+          <button type="submit" class="btn btn-primary">Comenzar</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 2. Pregunta inicial -->
+    <section class="screen" id="screen-intro" data-screen="intro" hidden>
+      <div class="card">
+        <p class="eyebrow">Para empezar</p>
+        <h2 class="question" id="intro-text"></h2>
+        <p class="hint">Elige la respuesta con la que más te identificas.</p>
+        <div class="options-list" id="intro-options"></div>
+      </div>
+    </section>
+
+    <!-- 3. Preguntas A/B -->
+    <section class="screen" id="screen-question" data-screen="question" hidden>
+      <div class="progress" aria-hidden="true"><div class="progress-bar" id="progress-bar"></div></div>
+      <p class="progress-label" id="progress-label"></p>
+      <p class="eyebrow" id="q-eyebrow"></p>
+      <h2 class="question" id="q-text"></h2>
+      <div class="ab-grid" id="q-options"></div>
+      <div class="nav-row">
+        <button type="button" class="btn btn-ghost" id="btn-back">&larr; Anterior</button>
+        <span class="kbd-hint">Atajos: <kbd>A</kbd> / <kbd>B</kbd> o <kbd>1</kbd> / <kbd>2</kbd></span>
+      </div>
+    </section>
+
+    <!-- 4. Resultado -->
+    <section class="screen" id="screen-result" data-screen="result" hidden>
+      <div class="card hero">
+        <p class="eyebrow">Tu perfil de comprador</p>
+        <h2 class="profile-name" id="profile-name"></h2>
+        <p class="profile-path" id="profile-path"></p>
+        <p class="profile-text" id="profile-text"></p>
+
+        <div class="split" aria-label="Balance de respuestas A y B">
+          <div class="split-bar" role="img" id="split-bar">
+            <div class="split-a" id="split-a"></div>
+            <div class="split-b" id="split-b"></div>
+          </div>
+          <div class="split-legend">
+            <span><i class="dot dot-a"></i>Opción A · <b id="count-a">0</b></span>
+            <span><i class="dot dot-b"></i>Opción B · <b id="count-b">0</b></span>
+          </div>
+        </div>
+
+        <h3 class="sub-title">Tu recorrido</h3>
+        <ul class="breakdown" id="breakdown"></ul>
+
+        <p class="save-status" id="save-status" hidden></p>
+        <button type="button" class="btn btn-primary" id="btn-restart">Volver a empezar</button>
+      </div>
+    </section>
+
+  </main>
+  <footer class="foot">Proyecto académico · Investigación de Mercados</footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
